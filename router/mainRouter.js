@@ -1,23 +1,21 @@
 const express = require('express')
 const router = express.Router()
-const adminRouter =  require( './adminRouter')
-const clientRouter =  require( './clientRouter')
+const adminRouter =  require( './adminRouter') 
 const userRouter =  require( './userRouter')
+const taskRouter = require('./taskRouter')
 const error404 = require('../controller/error404')
 const swaggerDocs = require('../documentation/swagger')
 const swaggerUi = require('swagger-ui-express');
 
 // handling  swagger documentation 
 router.use('/api-docs',swaggerUi.serve, swaggerUi.setup(swaggerDocs))
-router.use((req,res,next)=>{
-    console.log(req.body, 'object')
-    next()
-})
+ 
 
 // handling custom routes  
-router.use('/admin',adminRouter)
-router.use('/client',clientRouter)
+router.use('/admin',adminRouter) 
 router.use('/user',userRouter)
+router.use('/task',taskRouter)
+
 
 
 // handling  undefined api endpoints 

@@ -1,14 +1,14 @@
 const express = require('express');
 const error404 = require('../controller/error404');
-const getAdmin = require('../controller/getAdmin');
+const postMakeUserOnOff = require('../controller/admin/postMakeUserOnOff');
+const postValidateUser = require('../controller/admin/postValidateUser');
+const postCreateUser = require('../controller/user/postCreateUser');
 const router = express.Router();
  
-router.get('/', getAdmin);
- 
-router.post('/', (req, res) => {
-  console.log(req.body, 'req.body');
-  res.json({ message: 'admin' });
-});
+
+router.post('/makeUserOnOff',postMakeUserOnOff)
+router.post('/validateuUer',postValidateUser)
+
 
 // Handling undefined API endpoints
 router.use(error404);

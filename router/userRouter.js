@@ -9,9 +9,12 @@ const postturnUserOnOff = require('../controller/user/postturnUserOnOff')
 const postDeleteUser = require('../controller/user/postDeleteUser')
 const postuserLogin = require('../controller/user/postUserLogin')
 const getActiveUsers = require('../controller/user/getActiveUsers')
+const postSignup = require('../controller/user/postSignup')
 
 
 router.use('/createUser',createToken,postCreateUser)
+router.use('/signup',postSignup),
+router.use('/approve',postSignup)
 router.get('/getActiveClients',getActiveClients)
 router.get('/getActiveUsers',getActiveUsers)
 router.post('/turnUserOnOff',postturnUserOnOff)

@@ -11,3 +11,5 @@ const designationSchema = new mongoose.Schema({
 
 const designationCollection = new mongoose.model('designation',designationSchema)
 module.exports = designationCollection
+
+ 

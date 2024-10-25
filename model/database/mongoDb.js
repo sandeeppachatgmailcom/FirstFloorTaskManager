@@ -1,6 +1,6 @@
 
 const mongoose = require('mongoose')
-const link = 'mongodb+srv://sandeeppachat:w6yGtOSj60IeUvXk@cluster0.s4hqvyg.mongodb.net/kiara?retryWrites=true&w=majority'
+const link = 'mongodb+srv://sandeeppachat:w6yGtOSj60IeUvXk@cluster0.s4hqvyg.mongodb.net/firstFloor?retryWrites=true&w=majority'
 
 function connect (){
     mongoose.connect(link,)
