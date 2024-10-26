@@ -45,11 +45,17 @@ const socketHandler = (io) => {
             addUser(user.userId, socket.id);  
         });
 
-        socket.on("sentNotofication", (message) => {
-           
-            io.to(users.find(user => user.userId === message.receiverId)).emit('receiveNotification',message)
+        socket.on("sentNotification", (message) => {
+            const receiver = users.find(user => user.userId === message.receiverId);
+            const socketId = receiver?.socketId;
+            console.log(socket,'socketsocketsocketsocketsocket')
+            if (socketId) {
+                io.to(socketId).emit('receiveNotification', message);
+            } else {
+                console.warn(`Receiver with userId ${message.receiverId} not connected`);
+            }
         });
-
+        
         socket.on('disconnect', () => {
             console.log('User disconnected: ', socket.id);
             removeUser(socket.id);  
