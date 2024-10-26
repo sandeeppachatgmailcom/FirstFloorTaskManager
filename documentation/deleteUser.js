@@ -2,6 +2,8 @@
  * @swagger
  * /user/deleteUser:
  *   post:
+ *     tags:
+ *       - user
  *     summary: Delete a user
  *     description: Deletes a user from the system by their userId.
  *     requestBody:

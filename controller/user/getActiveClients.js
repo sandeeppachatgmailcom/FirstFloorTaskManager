@@ -2,7 +2,7 @@ const readActiveUsers = require("../../model/functions/users/readActiveUsers");
 
 const getActiveClients = async (req, res) => {
   try {
-    const data = await readActiveUsers("DN10000008");
+    const data = await readActiveUsers();
     if (data ) {
      res.status(200).json({ status: true, ...data });
     } else {
