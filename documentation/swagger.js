@@ -10,14 +10,18 @@ const swaggerOptions = {
       },
       servers: [
         {
-          url: 'https://firstfloortaskmanager.onrender.com',
+          url: 'http://localhost:5000',
+          description: 'Local server',
         },
+        {
+          url: 'https://firstfloortaskmanager.onrender.com/',
+          description: 'render server',
+        }
       ],
     },
     apis: ['./documentation/*.js'],  
   };
   
-  const swaggerDocs = swaggerJSDoc(swaggerOptions);
+const swaggerDocs = swaggerJSDoc(swaggerOptions);
 
-  module.exports = swaggerDocs
-  
+module.exports = swaggerDocs;

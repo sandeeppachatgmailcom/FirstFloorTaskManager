@@ -2,11 +2,12 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const createToken = (req, res, next) => {
     try {
-        const token = jwt.sign({ email: req?.body?.email }, 'secretKey', { expiresIn: '1h' });
+        const token = jwt.sign({ email: req?.body?.email}, 'secretKey', { expiresIn: '1h' });
+        console.log(req.body,token,'d454565656565')
 
         res.cookie('authToken', token, {
             httpOnly: true, 
-            secure: process.env.NODE_ENV === 'production', 
+            secure: true, 
             sameSite: 'strict',  
             maxAge: 60 * 60 * 1000  
         });
@@ -17,4 +18,6 @@ const createToken = (req, res, next) => {
     }
 };
 
-module.exports = {createToken}
+
+ 
+module.exports = {createToken }
