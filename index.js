@@ -6,7 +6,7 @@ const mongoose = require('./model/database/mongoDb')
 const { Server } = require('socket.io');
 const cors = require('cors'); 
 const socketHandler = require('./socketServer/socketio');
-
+const cookieParser = require('cookie-parser');
 const server = http.createServer(app);
 const corsOptions = {
     origin:'*',
@@ -24,11 +24,15 @@ const corsOptions = {
   socketHandler(io);
   
 
-
+app.use(cookieParser()); 
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
- 
+app.use((req,res,next)=>{
+  const token = req.headers['authorization']?.split(' ')[1];
+  console.log(token,'aaaaaa')
+  next()
+}) 
 app.use('/',mainRouter)
 
 

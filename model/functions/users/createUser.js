@@ -17,9 +17,10 @@ const createClient =async  (data)=>{
                 userId = await getserialNumber('user')
                 if (!userId)  return {status:false,message:'unique id generation failed '} 
             }
-            if(!isAdmin) {isAdmin = false;}
+            isAdmin = designation== 'DN10000010'?true:false
             deleted= false ;
             isActive = true;
+            
             password =await encryptPassword(password) || null
             if(!contact) contact = 'nil'
         }

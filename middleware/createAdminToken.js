@@ -10,14 +10,8 @@ const createAdminToken = ( email, isAdmin) => {
             { expiresIn: '1h' }
         );
 
-        res.cookie('authToken', token, {
-            httpOnly: true,
-            secure: true,
-            sameSite: 'strict',
-            maxAge: 60 * 60 * 1000  
-        });
-
-        next();
+        return token
+         
     } catch (error) {
         res.status(500).json({ error: 'Failed to create token' });
     }
