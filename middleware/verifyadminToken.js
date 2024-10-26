@@ -3,7 +3,6 @@ require('dotenv').config();
 
 const verifyAdminToken = (req, res, next) => {
     let token = req.cookies?.authToken || req.headers['authorization']?.split(' ')[1];
-    console.log('verify token')
     if (!token) {
         return res.status(401).json({ success: false, message: 'No token provided.' });
     }
