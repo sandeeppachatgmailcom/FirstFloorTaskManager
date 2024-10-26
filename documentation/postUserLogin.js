@@ -2,6 +2,8 @@
  * @swagger
  * /user/login:
  *   post:
+ *     tags:
+ *       - user
  *     summary: User login
  *     description: Authenticates a user by validating their email and password.
  *     requestBody:

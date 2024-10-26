@@ -1,8 +1,9 @@
-
 /**
  * @swagger
  * /user/getActiveClients:
  *   get:
+ *     tags:
+ *       - user
  *     summary: Get list of active users
  *     description: Fetches a list of all active users from the system.
  *     responses:
