@@ -24,4 +24,4 @@ router.use(error404)
 
 
 module.exports = router 
-//module.exports = {allRoutes}
+ 
