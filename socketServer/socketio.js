@@ -24,32 +24,35 @@ const socketHandler = (io) => {
     };
 
     io.on('connection', (socket) => {
-        console.log('A user connected: ', socket.id);
-
+        console.log(users,'A user connected: ', socket.id);
+        io.to(socket.id).emit('notification', {
+            message: `Welcome, user !`
+        });
         socket.on('message', (data) => {
             console.log('Received message: ', data);
-            io.emit('message', data); // Broadcast message to all clients
+            io.emit('message', data);  
         });
 
         socket.on('join', ({ userId }) => {
             console.log(`User ${userId} has joined`);
-            socket.emit('notification', {
+            console.log(socket.id,'socket.id')
+            io.to(socket.id).emit('notification', {
                 message: `Welcome, user ${userId}!`
             });
         });
 
         socket.on("addUser", (user) => {
-            addUser(user.userId, socket.id); // Corrected casing to `userId`
+            addUser(user.userId, socket.id);  
         });
 
-        socket.on("userUpdated", (user) => {
-            console.log(user, users, 'user, users---------------------------------***********');
-            
+        socket.on("sentNotofication", (message) => {
+           
+            io.to(users.find(user => user.userId === message.receiverId)).emit('receiveNotification',message)
         });
 
         socket.on('disconnect', () => {
             console.log('User disconnected: ', socket.id);
-            removeUser(socket.id); // Mark user as offline
+            removeUser(socket.id);  
         });
     });
 };

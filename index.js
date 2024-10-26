@@ -28,11 +28,7 @@ app.use(cookieParser());
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-app.use((req,res,next)=>{
-  const token = req.headers['authorization']?.split(' ')[1];
-  console.log(token,'aaaaaa')
-  next()
-}) 
+
 app.use('/',mainRouter)
 
 
