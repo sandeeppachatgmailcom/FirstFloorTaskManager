@@ -2,8 +2,8 @@ const jwt = require("jsonwebtoken");
 require('dotenv').config();
 
 const verifyAdminToken = (req, res, next) => {
-    const token = req.cookies.authToken;
-
+    const token = req?.cookies?.authToken;
+    console.log('verify token')
     if (!token) {
         return res.status(401).json({ success: false, message: 'No token provided.' });
     }
