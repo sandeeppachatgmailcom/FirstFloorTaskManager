@@ -1,5 +1,5 @@
 const express = require('express')
-const postreadMyTask = require('../controller/task/postreadMyTask')
+const postreadMyTask = require('../controller/task/post_readMyTask')
 const postReadMyTeamTask = require('../controller/task/postreadMyTeamTask')
 const postReadAllTask = require('../controller/task/postReadAllTask')
 const postPickMyTask = require('../controller/task/postPickMyTask')
