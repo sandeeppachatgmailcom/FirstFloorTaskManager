@@ -8,7 +8,7 @@ const verifyAdminToken = (req, res, next) => {
         return res.status(401).json({ success: false, message: 'No token provided.' });
     }
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secretKey');
+        const decoded = jwt.verify(token, 'secretKey');
         if (!decoded.admin) {
             return res.status(403).json({ success: false, message: 'No admin authority.' });
         }
