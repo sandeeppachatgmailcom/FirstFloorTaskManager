@@ -1,6 +1,6 @@
  
 const designationCollection = require("../../schema/designation")
-const bcrypt = require('bcrypt') 
+const bcrypt = require('bcryptjs') 
 const userCollection = require("../../schema/user")
 
 
